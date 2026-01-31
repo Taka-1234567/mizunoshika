@@ -1,0 +1,317 @@
+/* ==================== APPLE-STYLE MINIMAL (Ver3) ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+
+:root {
+    --apple-blue: #0071e3;
+    --apple-bg: #eef4f9;
+    /* Gentle Blue-ish Background */
+    --apple-text: #1d1d1f;
+    --apple-gray: #86868b;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    --font-base: 'Zen Kaku Gothic New', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-base);
+    background-color: var(--apple-bg);
+    color: var(--apple-text);
+    min-height: 100vh;
+    overflow-y: auto;
+    /* Allow scrolling on small monitors */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align to top for scroll */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==================== LAYOUT ==================== */
+.one-screen {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 48% 52%;
+    /* Slightly more space for content */
+    background-color: var(--apple-bg);
+}
+
+/* ==================== LEFT: BRAND IMAGERY ==================== */
+.os-brand {
+    position: relative;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--apple-text);
+    /* Dark text on light BG usually, but here we have image */
+}
+
+/* Round the image container like an iPad/Mac screen */
+.os-brand__bg {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 0;
+    bottom: 2rem;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.os-brand__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 10s ease;
+}
+
+.os-brand__bg:hover img {
+    transform: scale(1.05);
+}
+
+.os-brand__overlay {
+    /* Minimal gradient overlay (White fade at bottom for text readability if needed, or clear) */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+.os-brand__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    color: var(--apple-text);
+    /* Dark text */
+}
+
+.os-brand__logo {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--apple-text);
+}
+
+.os-brand__logo-icon {
+    background: white;
+    border-radius: 12px;
+    padding: 8px;
+    display: flex;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.os-brand__text {
+    margin-bottom: 2rem;
+}
+
+.os-brand__title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--apple-text);
+    /* Gentle Black */
+    background: none;
+    -webkit-text-fill-color: initial;
+    text-shadow: none;
+}
+
+.os-brand__desc {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 500;
+    /* Slightly bolder for readability */
+    opacity: 0.95;
+    max-width: 480px;
+    color: var(--apple-text);
+}
+
+/* ==================== RIGHT: INTERFACE (Pop & Simple) ==================== */
+.os-info {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+/* Headings */
+.os-heading {
+    font-size: 0.9rem;
+    color: var(--apple-gray);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    padding: 0;
+}
+
+/* Cards (Glassy & Rounded) */
+.os-access__details,
+.os-access__map {
+    background: white;
+    padding: 2rem;
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.os-access__details:hover {
+    transform: translateY(-5px) scale(1.01);
+}
+
+.os-access__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    height: auto;
+}
+
+.os-hours-table {
+    font-size: 0.9rem;
+    color: var(--apple-text);
+}
+
+.os-hours-table th {
+    background: transparent;
+    color: var(--apple-gray);
+    padding: 8px 4px;
+    border-bottom: 1px solid #eee;
+}
+
+.os-hours-table td {
+    border-bottom: 1px solid #eee;
+    padding: 8px 4px;
+}
+
+.os-address-box {
+    margin-top: 1.5rem;
+    color: var(--apple-gray);
+    font-size: 0.95rem;
+}
+
+.os-parking {
+    color: var(--apple-blue);
+    font-weight: 600;
+}
+
+/* Map Rounded */
+.os-access__map {
+    padding: 0;
+    /* Full bleed map in card */
+    overflow: hidden;
+    min-height: 240px;
+}
+
+/* CTA Buttons (Pill Shapes) */
+.os-cta {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.os-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 2rem;
+    border-radius: 100px;
+    /* Pill shape */
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.os-btn--tel {
+    background-color: white;
+    color: var(--apple-text);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.os-btn--tel:hover {
+    background-color: #fafafa;
+    transform: scale(1.03);
+}
+
+.os-btn--web {
+    background: linear-gradient(135deg, #0071e3 0%, #0077ed 100%);
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 113, 227, 0.3);
+}
+
+.os-btn--web:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 113, 227, 0.4);
+}
+
+.os-btn__icon {
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+}
+
+.os-btn__label {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.os-btn__main {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+    .one-screen {
+        display: block;
+        overflow: auto;
+        height: auto;
+    }
+
+    .os-brand {
+        padding: 1.5rem;
+        height: 60vh;
+    }
+
+    .os-brand__bg {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0 0 32px 32px;
+    }
+
+    .os-info {
+        padding: 2rem 1.5rem;
+    }
+
+    .os-access__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .os-cta {
+        grid-template-columns: 1fr;
+    }
+}
